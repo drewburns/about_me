@@ -55,7 +55,7 @@
             <p class='white info'>
               <br><br>
                             <h3>A bit about me:</h3>
-              <li>18 years old</li>
+              <li id="age">18 years old</li>
               <li>Full time student</li>
               <li>Programmer</li>
               <li>Entrepreneur</li>
@@ -215,6 +215,13 @@
     $(document).foundation();
     var slideIndex = 0;
     carousel();
+    var x = document.getElementById("age");
+    var dob = "1998/11/04";
+    var birthday = new Date(dob);
+    var ageDifMs = Date.now() - birthday.getTime();
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    var age = Math.abs(ageDate.getUTCFullYear() - 1970);
+    x.innerHTML = age + " years old";
 
     function carousel() {
       var images = ["deca2.jpg","soccer1.png","soccer2.png","brothers.png", "ernie.png"]
